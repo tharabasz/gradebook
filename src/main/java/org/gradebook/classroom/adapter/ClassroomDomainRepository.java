@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Component
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class ClassroomDomainRepository implements ClassroomRepositoryPort {
     private final ClassroomJpaRepository jpa;
 

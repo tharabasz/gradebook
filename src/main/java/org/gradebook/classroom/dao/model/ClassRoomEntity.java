@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.List;
 
-import static org.gradebook.classroom.dao.model.ClassRoom.TABLE;
+import static org.gradebook.classroom.dao.model.ClassRoomEntity.TABLE;
 
 @Getter
 @Setter
@@ -15,7 +15,7 @@ import static org.gradebook.classroom.dao.model.ClassRoom.TABLE;
 @AllArgsConstructor
 @Entity
 @Table(name = TABLE)
-public class ClassRoom {
+public class ClassRoomEntity {
     public static final String TABLE = "classroom";
 
     @Id

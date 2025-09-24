@@ -1,9 +1,7 @@
 package org.gradebook.classroom.adapter;
 
-import org.gradebook.classroom.dao.model.ClassRoom;
+import org.gradebook.classroom.dao.model.ClassRoomEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-
-public interface ClassroomJpaRepository extends JpaRepository<ClassRoom, Long> {
+public interface ClassroomJpaRepository extends JpaRepository<ClassRoomEntity, Long> {
 }
