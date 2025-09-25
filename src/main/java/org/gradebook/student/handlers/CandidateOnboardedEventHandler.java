@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.gradebook.candidate.domain.events.CandidateOnboardedEvent;
 import org.gradebook.student.adapter.StudentDomainRepository;
-import org.gradebook.student.domain.port.OnboardedStudentDetailsRepository;
+import org.gradebook.student.domain.port.EnrolledStudentRepository;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Slf4j
 public class CandidateOnboardedEventHandler {
-    OnboardedStudentDetailsRepository onboardedStudentDetailsRepository;
+    EnrolledStudentRepository onboardedStudentDetailsRepository;
     StudentDomainRepository studentDomainRepository;
 
     @EventListener

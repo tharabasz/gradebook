@@ -4,6 +4,6 @@ import org.gradebook.student.domain.model.StudentAggregate;
 
 import java.util.Optional;
 
-public interface OnboardedStudentDetailsRepository {
+public interface EnrolledStudentRepository {
     Optional<StudentAggregate> findById(String candidateId);
 }
