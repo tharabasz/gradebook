@@ -19,4 +19,11 @@ public class StudentDomainRepository implements StudentRepositoryPort {
        // return jpa.findById(id).map()//mapstruct
         return Optional.empty();
     }
+
+    @Override
+    public StudentAggregate save(StudentAggregate classroom) {
+        return null;
+    }
+
+
 }

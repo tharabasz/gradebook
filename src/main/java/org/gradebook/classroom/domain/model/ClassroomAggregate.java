@@ -1,9 +1,16 @@
 package org.gradebook.classroom.domain.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@AllArgsConstructor
+@Builder
 public class ClassroomAggregate {
 
     private Long id;
@@ -15,19 +22,14 @@ public class ClassroomAggregate {
     private Long teacherId;
     private final List<Long> studentIds = new ArrayList<>();
 
-    public ClassroomAggregate(Long id, String name, String grade, Integer year, Long teacherId, List<Long> studentIds) {
-        this.id = id;
-        this.name = name;
-        this.grade = grade;
-        this.year = year;
-        this.teacherId = teacherId;
-        if (studentIds != null)
-            this.studentIds.addAll(studentIds);
+    public static ClassroomAggregate initializeClassroom(Long id, String name, String grade, Integer year) {
+        return ClassroomAggregate.builder()
+                .id(id)
+                .name(name)
+                .grade(grade)
+                .year(year)
+                .build();
     }
-
-    public Long getId() { return id; }
-    public List<Long> getStudentIds() { return List.copyOf(studentIds); }
-    public Long getTeacherId() { return teacherId; }
 
     public void assignStudent(Long studentId) {
         Objects.requireNonNull(studentId, "studentId must not be null");
@@ -41,7 +43,15 @@ public class ClassroomAggregate {
         this.teacherId = teacherId;
     }
 
-    public static ClassroomAggregate initializeClassroom(Long id, String name, String grade, Integer year) {
-        return new ClassroomAggregate(id, name, grade, year, null, new ArrayList<>());
+    public void removeStudent(Long studentId) {
+        studentIds.remove(studentId);
+    }
+
+    public boolean hasStudent(Long studentId) {
+        return studentIds.contains(studentId);
+    }
+
+    public void changeRoom(String roomNumber) {
+        this.roomNumber = roomNumber;
     }
 }

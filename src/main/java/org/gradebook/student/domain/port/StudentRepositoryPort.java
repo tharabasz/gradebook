@@ -6,4 +6,5 @@ import java.util.Optional;
 
 public interface StudentRepositoryPort {
    Optional<StudentAggregate> findById(Long id);
+   StudentAggregate save(StudentAggregate classroom);
 }

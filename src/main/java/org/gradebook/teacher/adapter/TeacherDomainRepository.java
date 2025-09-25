@@ -13,7 +13,7 @@ import java.util.Optional;
 @Component
 @AllArgsConstructor
 public class TeacherDomainRepository implements TeacherRepositoryPort {
-    private final StudentJpaRepository jpa;
+    private final TeacherJpaRepository jpa;
 
     @Override
     public Optional<TeacherAggregate> findById(Long id) {
