@@ -8,7 +8,6 @@ import org.gradebook.candidate.domain.events.CandidateOnboardedEvent;
 import org.gradebook.candidate.domain.events.CandidateRejectedEvent;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
