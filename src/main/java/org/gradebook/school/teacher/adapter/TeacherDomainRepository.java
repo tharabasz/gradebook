@@ -13,8 +13,7 @@ public class TeacherDomainRepository implements TeacherRepositoryPort {
     private final TeacherJpaRepository jpa;
 
     @Override
-    public Optional<TeacherAggregate> findById(Long id) {
-       // return jpa.findById(id).map()//mapstruct
+    public Optional<TeacherAggregate> findById(String teacherId) {
         return Optional.empty();
     }
 }

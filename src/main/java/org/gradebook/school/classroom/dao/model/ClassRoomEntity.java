@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.gradebook.school.classroom.dao.model.ClassRoomEntity.TABLE;
 
@@ -19,15 +20,13 @@ public class ClassRoomEntity {
     public static final String TABLE = "classroom";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
+    @Column(name = "teacher_id")
+    private String teacherId;
 
     private String name;
     private String grade;
     private Integer year;
-
-    @Column(name = "teacher_id")
-    private String teacherId; // reference by UUID/ID string
 
     @ElementCollection
     @CollectionTable(name = "classroom_students", joinColumns = @JoinColumn(name = "classroom_id"))

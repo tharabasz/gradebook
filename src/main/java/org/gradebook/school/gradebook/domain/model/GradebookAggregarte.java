@@ -7,21 +7,28 @@ import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-@Getter
 @Builder
-public class GradebookAggregarte {  // Aggregate Root
+public class GradebookAggregarte {
     private final GradebookId id;
     private final StudentId studentId;
     private final SubjectId subjectId;
-    private final SemesterVo semester;   // NEW
+    private final SemesterVo semester;
     private final int year;
 
     @Default
-    private final List<GradeEntry> partialGrades;
+    private final List<GradeEntry> partialGrades = new ArrayList<>();
     private SemesterGrade semesterGrade;
     private FinalGrade finalGrade;
 
+    private static GradebookAggregarte initialize (SemesterVo semester, int year) {
+        return GradebookAggregarte.builder()
+                .id(new GradebookId(UUID.randomUUID().toString()))
+                .semester(semester)
+                .year(year)
+                .build();
+    }
     public void addPartialGrade(@NonNull GradeEntry grade) {
         partialGrades.add(grade);
     }
@@ -59,14 +66,5 @@ public class GradebookAggregarte {  // Aggregate Root
             throw new IllegalStateException("Cannot assign final grade before semester grade is calculated");
         }
         this.finalGrade = finalGrade;
-    }
-
-    private class GradebookId {
-    }
-
-    private class StudentId {
-    }
-
-    private class SubjectId {
     }
 }

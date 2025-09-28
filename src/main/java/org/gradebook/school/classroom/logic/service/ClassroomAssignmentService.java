@@ -23,7 +23,7 @@ public class ClassroomAssignmentService {
     }
 
     @Transactional
-    public void assignStudentToClassroom(Long studentId, Long classroomId) {
+    public void assignStudentToClassroom(String studentId, String classroomId) {
 
         studentRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalArgumentException("Student not found: " + studentId));
@@ -36,7 +36,7 @@ public class ClassroomAssignmentService {
     }
 
     @Transactional
-    public void assignTeacherToClassroom(Long teacherId, Long classroomId) {
+    public void assignTeacherToClassroom(String teacherId, String classroomId) {
         teacherRepository.findById(teacherId)
                 .orElseThrow(() -> new IllegalArgumentException("Student not found: " + teacherId));
 

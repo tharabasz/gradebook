@@ -4,4 +4,4 @@ import org.gradebook.DomainEvent;
 
 import java.util.UUID;
 
-public record StudentOnboardedEvent(UUID studentId) implements DomainEvent { }
+public record StudentOnboardedEvent(String studentId) implements DomainEvent { }

@@ -9,5 +9,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RegisterNewCandidate {
 
-    public void registerCandidate()
+    public void registerCandidate() {
+
+    }
 }

@@ -1,7 +1,5 @@
 package org.gradebook.school.gradebook.domain.model;
 
-import lombok.AllArgsConstructor;
-
 public enum GradeValue {
     A(5.0),
     B(4.0),

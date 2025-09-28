@@ -10,12 +10,13 @@ import org.gradebook.admission.candidate.domain.events.CandidateRejectedEvent;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Builder
 @AllArgsConstructor
 public class CandidateAggregate {
 
-    private final Long candidateId;
+    private final CandidateId candidateId;
     private String firstName;
     private String lastName;
     private String email;
@@ -24,9 +25,9 @@ public class CandidateAggregate {
     @Default
     List<DomainEvent> events = new ArrayList<>();
 
-    public static CandidateAggregate initialise(Long id, String firstName, String lastName, String email) {
+    public static CandidateAggregate initialise(String firstName, String lastName, String email) {
         return CandidateAggregate.builder()
-                .candidateId(id)
+                .candidateId(new CandidateId(UUID.randomUUID().toString()))
                 .firstName(firstName)
                 .lastName(lastName)
                 .email(email)

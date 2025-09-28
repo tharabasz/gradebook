@@ -13,8 +13,7 @@ public class StudentDomainRepository implements StudentRepositoryPort {
     private final StudentJpaRepository jpa;
 
     @Override
-    public Optional<StudentAggregate> findById(Long id) {
-       // return jpa.findById(id).map()//mapstruct
+    public Optional<StudentAggregate> findById(String id) {
         return Optional.empty();
     }
 

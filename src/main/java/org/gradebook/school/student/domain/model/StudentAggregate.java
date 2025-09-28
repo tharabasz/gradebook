@@ -16,7 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class StudentAggregate {
 
-    private UUID studentId;
+    private StudentId studentId;
     private String name;
     private String email;
     private EnrollmentStatus status;
@@ -29,6 +29,6 @@ public class StudentAggregate {
         }
 
         this.status = EnrollmentStatus.ACTIVE;
-        domainEvents.add(new StudentOnboardedEvent(this.studentId));
+        domainEvents.add(new StudentOnboardedEvent(this.studentId.studentId()));
     }
 }

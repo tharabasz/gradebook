@@ -4,7 +4,6 @@ package org.gradebook.school.gradebook.dao.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.util.List;
 
 
@@ -12,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "gradebook",
         uniqueConstraints = @UniqueConstraint(
-                columnNames = {"student_id", "subject_id", "semester", "year"}
+                columnNames = {"student_id", "subject_id", "semester", "    year"}
         ))
 public class GradebookEntity {
 
