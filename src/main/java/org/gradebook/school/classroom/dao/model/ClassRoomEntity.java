@@ -20,7 +20,8 @@ public class ClassRoomEntity {
     public static final String TABLE = "classroom";
 
     @Id
-    private String id;
+    private Long id;
+
     @Column(name = "teacher_id")
     private String teacherId;
 

@@ -13,7 +13,7 @@ import java.util.UUID;
 public class GradebookAggregarte {
     private final GradebookId id;
     private final StudentId studentId;
-    private final SubjectId subjectId;
+    private final SubjectVo subject;
     private final SemesterVo semester;
     private final int year;
 
@@ -22,7 +22,7 @@ public class GradebookAggregarte {
     private SemesterGrade semesterGrade;
     private FinalGrade finalGrade;
 
-    private static GradebookAggregarte initialize (SemesterVo semester, int year) {
+    private static GradebookAggregarte initialize(SemesterVo semester, int year) {
         return GradebookAggregarte.builder()
                 .id(new GradebookId(UUID.randomUUID().toString()))
                 .semester(semester)

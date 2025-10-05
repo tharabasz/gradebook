@@ -11,15 +11,16 @@ sourceCompatibility = '23'
 repositories {
     mavenCentral()
 }
-
 dependencies {
-    //implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.postgresql:postgresql:42.7.3'
 
     compileOnly 'org.projectlombok:lombok'
+    implementation "org.mapstruct:mapstruct:1.6.3"
+
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.6.3"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

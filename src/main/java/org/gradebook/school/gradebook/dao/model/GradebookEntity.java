@@ -16,6 +16,7 @@ import java.util.List;
 public class GradebookEntity {
 
     @Id
+    @Column(columnDefinition = "uuid")
     private String id;
 
     @Column(name = "student_id", nullable = false)

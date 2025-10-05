@@ -8,6 +8,7 @@ import org.gradebook.DomainEvent;
 import org.gradebook.school.student.domain.events.StudentOnboardedEvent;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -20,6 +21,9 @@ public class StudentAggregate {
     private String name;
     private String email;
     private EnrollmentStatus status;
+    private String frequency;
+    private List<String> warns;
+
     @Default
     private final Set<DomainEvent> domainEvents = new HashSet<>();
 

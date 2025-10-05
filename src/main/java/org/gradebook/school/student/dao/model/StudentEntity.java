@@ -21,8 +21,7 @@ public class StudentEntity {
     public static final String TABLE = "student";
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @Column(unique = true, nullable = false)
     private String studentUUID;

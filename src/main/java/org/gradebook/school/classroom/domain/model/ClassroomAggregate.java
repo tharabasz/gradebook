@@ -1,7 +1,7 @@
 package org.gradebook.school.classroom.domain.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import jakarta.persistence.Entity;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,9 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
+@NoArgsConstructor
 public class ClassroomAggregate {
 
     private ClassroomId classroomId;
@@ -22,7 +25,7 @@ public class ClassroomAggregate {
     private String notes;
     private final List<StudentId> studentIds = new ArrayList<>();
 
-    public static ClassroomAggregate initializeClassroom(String name, String grade, Integer year) {
+    public static ClassroomAggregate initializeClassroom(String name, String grade, int year) {
         return ClassroomAggregate.builder()
                 .classroomId(new ClassroomId(UUID.randomUUID().toString()))
                 .name(name)
