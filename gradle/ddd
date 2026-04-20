@@ -1,0 +1,31 @@
+---
+name: java-ddd-principles
+description: Enforces Domain-Driven Design (DDD) principles in Java, especially when building Temporal workflows. Use whenever code involves business domains, aggregates, entities, bounded contexts, or long-running processes. Trigger on "DDD", "domain driven", "aggregate", "bounded context", or when generating business workflow code.
+---
+
+# Java DDD Principles Skill
+
+## Purpose
+Apply tactical DDD patterns so Temporal workflows represent real business aggregates.
+
+## Core DDD Concepts to Enforce
+- **Aggregate** → One main Temporal Workflow (e.g., `OrderAggregate` → `OrderWorkflow`).
+- **Entity / Value Object** → Pure domain classes in `domain/model/`.
+- **Repository** → Outgoing port (implemented by Activity or external adapter).
+- **Domain Service** → Application service / port.
+- **Bounded Context** → One Temporal Task Queue per major context.
+
+## Rules for Temporal + DDD
+- A Workflow = Aggregate Root (holds state + business invariants).
+- Signals = Commands that change aggregate state.
+- Queries = Read-only access to aggregate.
+- Updates = Validated commands that return results.
+- Activities = Domain events or external interactions triggered by the aggregate.
+
+## Example Mapping
+User says “Order processing” →  
+`Order` = Aggregate → becomes `OrderWorkflow`  
+`InventoryService` = Outgoing Port → implemented as Activity  
+`PaymentCharged` = Domain Event (raised via Signal or ContinueAsNew)
+
+Always generate code that clearly separates domain model from infrastructure (Temporal).
